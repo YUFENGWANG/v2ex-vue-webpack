@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Top from 'components/Top'
-import New from 'components/New'
-import itemView from 'components/itemView'
+import Top from 'views/Top'
+import New from 'views/New'
+import ItemView from 'views/ItemView'
 
 Vue.use(Router)
 
@@ -19,7 +19,6 @@ export default new Router({
     component: New
   }, {
     path: '/show/:id',
-    component: itemView,
-    name: 'show'
+    component: ItemView
   }]
 })

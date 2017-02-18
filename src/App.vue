@@ -19,8 +19,8 @@
 
 <script>
 
-import Top from 'components/Top'
-import New from 'components/New'
+import Top from 'views/Top'
+import New from 'views/New'
 
 export default {
   name: 'app',
@@ -113,4 +113,6 @@ li {
   max-width: 800px;
   margin: 0 auto;
 }
+
+
 </style>

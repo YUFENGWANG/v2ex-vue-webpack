@@ -1,52 +1,37 @@
 <template>
-  <div>
-    <ul>
-      <li v-for='item in hot' class="item"> 
+     <li  class="item"> 
+
         <div class="">
           <img :src="item.member.avatar_normal" alt="">
+          <span class="reply-count">{{item.replies}}</span>
           <div class="content">
-           <router-link :to="{name: 'show', params: {id: item.id}}" class='title'>{{item.title}}</router-link> 
+           <router-link :to="'/show/' + item.id " class='title'>{{item.title}}</router-link> 
            <span class="tag">{{item.node.title}}</span>  •  <span class="user">发布者：{{item.member.username}}</span>  •   <span class="time-ago">最后回复：{{ item.last_touched | formatDate }}</span>
           </div>
         </div>
+     
       </li>
-    </ul>
-  </div>
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import {formatDate} from '../filters'
+import {formatDate} from '../filters'
 
-  export default {
-    name: 'top',
-    data () {
-      return {
-        msg: 'this is hotest content',
-        hot: ''
-      }
-    },
-    filters: {
-      formatDate
-    },
-    mounted () {
-      const self = this
-      axios.get('/api/topics/hot.json')
-        .then(function (response) {
-          console.log(response.data)
-          self.hot = response.data
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
-    methods: {
+export default {
+  name: 'item',
+  data () {
+    return {
+      msg: 'This is the single item'
     }
-  }
+  },
+  filters: {
+    formatDate
+  },
+  props: ['item']
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .item {
   display: block;
   padding: 15px;
@@ -97,7 +82,18 @@
   }
 }
 
-
+.reply-count {
+  float: right;
+  line-height: 12px;
+  color: #fff;
+  background-color: #aab0c6;
+  padding: 2px 10px 2px 10px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-right: 5px;
+  font-size: 12px;
+}
 
 </style>
-
