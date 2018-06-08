@@ -1,5 +1,7 @@
 # v2ex-vue-webpack
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/YUFENGWANG/v2ex-vue-webpack.svg)](https://greenkeeper.io/)
+
 > A Vue.js project
 
 ## Build Setup
